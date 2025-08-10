@@ -1,0 +1,48 @@
+
+--- Monolithics (legacy application)
+- All functionalities in one application
+- Order generate
+- Product Inventory Manage
+- Login Management
+- Billing and Payments
+- Disadvantages:- Overload IDE, Hard to Scale, Tightly Coupled (1 line change can impact many thing), deploy full application
+
+
+--- Microservices
+- Product
+- Order Management
+- Billing
+- Payment
+- Account Management
+- Login
+- And many more services (Any bug encountered will be fixed in that service only, and separately deployed)
+- Separately scaling each services
+- Disadvantages
+    - Latency can increase if no proper division,
+    - chain of failure (finding can take time)
+    - Transaction Management (ACID property) - each service may have its own DB, (rollback or commit)
+
+--- Phases of Microservices
+- Decomposition
+    - By Business Capability
+    - By subdomain
+- Database
+    - Shared/ Common Database
+    - Or Each Service has its own database
+- Communication
+    - Via APIs
+    - Via Events
+- Integration
+    - API Gateways
+- Observability
+- Monitoring
+- etc.
+
+-- Decomposition Pattern
+- By Business Functionality or Capability Pattern
+    - Online Order Application
+        - Services:- Order Management, Product Management (Inventory Manage), Account Management, Login, Billing, Payment
+- By Subdomain (DDD) - Domain Driven Design
+    - Domain can have multiple subdomain
+    - Payment Domain can have multiple microservices (forward payment, reverse payment)
+    - Order Domain can have multiple microservices (order tracking, order placing,

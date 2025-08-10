@@ -1,0 +1,8 @@
+
+- CAP Theorem:- Tradeoffs and Affect Complete System Design
+
+- CAP System - Desirable property of distributed system with replicated data - Only 2 can be achieved at a time
+    - Suppose, we have user A, and two databases DB1 in India and DB2 in Germany, usually, if anything is written to DB1, it is synced and replicated to all database, here DB2
+    - C - Consistency         - any write on DB1, will be replicated to DB2, data should be consistent
+    - A - Availability        - all nodes here of DB should respond (either success or failure, but response should be there)
+    - P - Partition Tolerance - Communication Between DB1 and DB2 somehow breaks, but user A can still query DB1 and DB2, this means, system is up

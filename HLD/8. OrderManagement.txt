@@ -1,0 +1,59 @@
+
+- In System Design Interviews of 1 Hour - we assume some things already done and provided, and do system design for 3 to 5 requirements
+
+- Requirements
+    - Functional
+    - Non-Functional
+- Capacity Estimations
+- Database Design
+- API Design
+- HLD
+- Diagram
+- Scaling Design for Millions
+
+### Assumptions
+- User Profile Creation is provided
+- Product Onboarding is provided
+- Payment Service is provided
+
+## Functional Requirements
+- Search for Product
+- Recommendations on Homepage
+- Place Order
+- Check Order Status
+- Write/ View Product Reviews
+
+## Non-Functional Requirements
+- Low Latency (Recommendations and Search)
+- High Consistency (Placing Order, Order Status, Payments)
+
+## Capacity Estimations
+- Estimate searched per second
+    - Active Users: 300 Monthly Active Users
+    - Each User search for 10 product a month
+        - Total Searches in a Month: 300 Million*10 = 3 Billion Searches
+        - 1000 Searches / second
+- Estimate for Storage
+    - Total Products : 10 Million
+    - Each Product Needs 10 MB (Images + Description)
+    - Total 100 TB required to store all products
+
+############ Database Design
+## SQL Database
+- User DB (Name, Password, Email, Last Login, Created)
+- Address DB (UserID, Effective Date, Address Line 1, City, Country, Zip Code)
+## NoSQL Database :- As each product can be gender-specific, and others won't, so why waste spaces for gender columns etc
+- Product DB - json documents (Categories, Gender, Battery anything for each entry)
+- Order DB   - single order_id, and multiple products ordered with the same order_id, hence json, and hence mongoDB or NoSQL DB
+- Review DB  - key, description, images (all attachment ids)
+
+
+############# APIs
+- GetRecommendations (UserID)                            - Return list of 10 Product Recommendations
+- Search (searchString, UserID)                          - GET Method and returns a list of products (UserID in the param to get all products that can be delivered to the set address of the User)
+- AddToCart (UserID, ProductID, Qty, Amt)                - Returns a boolean true/ false status
+- PlaceOrder (UserID, OrderID, AddressID, PaymentStatus) - returns Boolean
+- CheckOrderStatus (OrderID)                             - GET Returns order status
+
+-: Miro Board:- https://miro.com/app/board/uXjVJVBp5u8=/?share_link_id=988625881252
+:- .work ID:- commerce

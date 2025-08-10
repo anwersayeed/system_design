@@ -1,0 +1,36 @@
+
+
+### Strangler Patter
+- Refactoring to Microservices ( from already Monolithic Service )
+    - Decomposition Patterns tell us about how many components to break into
+- As, we are building Monolithic to Microservices, we will create a controller
+    - This controller will decide that send 10% of traffic to Microservices architecture
+    - And rest 90% still to Monolithic that we were using earlier
+    - If suppose, our newly build Microservices break, we can suddenly set controller to change traffic from Microservices to Monolithic Service
+    - Slowly, we will reduce traffic from Monolithic towards Microservices
+    - Full Monolithic cannot be converted to Microservices
+    - Ultimately, monolithic will be deleted
+
+### Data Management in Microservices
+    - Database for each individual service
+        - SAGA - SAGA pattern solves the problem: even having multiple services with each having its own DB, we can still achieve ACID property as a whole, transactions that involve multiple DB
+        - CQRS - Join problem solved by CQRS
+            - Command (Create Update Delete), Query (Select), Request, Segregation
+            - Create Update Delete will happen in each DB in each service
+            - Read Query will happen in a new DB (view - all data here) :- join will happen in this DB containing all table and data, whenever any write happen in each DB, event publish/ procedure/ trigger to update view
+    - Shared Database - not very successful as not very scalable
+        - database as a whole will be needed to scale, even if any 1 service needs it
+        - database modified by one service may affect other services
+        - Advantages
+            - ACID/ Transactional Property maintained easily
+            - Query Joins can be used
+
+## SAGA Pattern - Sequence of Local Transaction
+    - Each Service can only query its own database
+    - One service can invoke APIs of other service but not query database
+    - Each service can use DB for its requirement, like svc1 can use NoSQL, other can use SQL database
+    - Scale database for a particular service that has more traffic
+    - In Sequence Event is published -> Next Service ........ Final Service | If anywhere is failure in any service, failure event is given as response, and any changes in the db is rolled back, in the reverse sequence
+    - Types:-
+        - Choreagraphy - drawback of cyclic dependency, service each other
+        - Orchestration - it manages all

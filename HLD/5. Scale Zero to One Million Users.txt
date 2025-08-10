@@ -1,0 +1,39 @@
+
+Steps:-
+
+- Single Server
+- Application and DB Server Separation
+- Load Balancer + Multiple App Servers
+- Database Replication
+- Cache
+- CDN
+- Data Center
+- Messaging Queue
+- Database Scaling
+
+-- User -> (Load Balancer) --> Multiple Servers (Logic) --> Single Database Server
+- Single Database Server --> Improve --> Replication --> Master Slave Architecture (1 Master for write, Multiple Slaves for read)
+    - If Slave fails no issue, If Master fails, one of Slave become master
+    - CACHE:- DB Operation is expensive, so before DB, we can have CACHE, if CACHE has the data, CACHE hit, if not then CACHE miss and go to DB
+        - CACHE has TTL defined - 24 hours, 1 week, after that data is purged
+- CDN - Content Delivery Network ( for Caching and other purposes )
+    - Before even going to the load balancer
+    - Caching of static data like HTML, CSS, Video
+    - When we have users globally, and our data center in India, then Japan users may face delayed Request/ Response, CDN solves this
+    - If suppose, some user in another country request some data, request goes to nearest CDN, if the data is not there, request goes to next nearest CDN, if not found, then go to original DB
+- Messaging Queue (Rabbit MQ/ Kafka)
+    - Producer pushes message into Messaging Queue (topics) --> for Subscribers
+    - Bring Asynchronous nature into our codebase
+    - Send Notifications, Webhook, Mail
+    - If somehow failed to reach subscriber, then re-queue/ retry
+    - Producer -> Message with Routing Key -> Exchange -> Binding -> Queue (Various) -> Respective Subscriber
+        - Direct:- Routing Key == Binding Key
+        - Fanout:- All Queues
+        - Topic:- asterisk comparision and to multiple queues
+
+- Database Scaling
+    - Vertical (Existing Database: Increase CPU, RAM), but always a limit
+    - Horizontal (Add more nodes, 2 to 4)
+        - Sharding (Suppose division does not happen uniformly, and one shard gets overloaded) - we can again divide the overloaded shard - (maybe consistent hashing or maybe super sharding key) - deNormalize to save joins
+            - Vertical -  Divide tables column wise
+            - Horizontal - Divide tables row wise (into different tables in different shards)

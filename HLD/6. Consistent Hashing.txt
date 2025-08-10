@@ -1,0 +1,14 @@
+
+- Instead of this Hashing Bullshit, can we not ourselves decide which shard it will go in sharded database, and remember which request belong to which shard, keeping uniform distribution (Yeah DB again for fetching)
+
+- Hashing - Hash Function (key) - converts and mod to required range - hash function should be efficient to uniform distribution
+    - When we change hash function, all data will need to be rebalanced
+
+- Consistent Hashing
+    - If suppose in Sharded database - a new shard is added, or an existing shard gets down
+    - Then we need to rebalancing is needed, and we try to keep rebalancing towards minimum (1/n % of total keys)
+    - Virtual Ring (Same Hash Function) :-
+    - What I understand, Consistent Hashing is not for sharded DB, cause rebalanacing can be done, when we have ti distribute requests to servers
+        - Rebalancing cannot be done to Sharded Database distribution, cause we have data stored already, but distributing requests between servers can be done using Hashing, and if more node is added
+        - Or node is removed, then rebalancing makes sense in case of servers
+        - we basically, create virutal objects of new nodes, if added in between existing servers, and allow key ranges to point them

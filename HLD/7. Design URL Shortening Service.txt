@@ -1,0 +1,50 @@
+
+URL Shortening Service:-
+
+- Design
+    - POST Request :- Long URL, in Response, short URL is provided
+    - GET Request :- Short URL, in Response, Long URL is given
+
+- Requirement
+    - Length of Short URL (How Much:- As Much Short As We Can) - 8 Characters by Linkedin
+        - Traffic - 10 Million URL Or Day (3650 Million URL/ Year)
+        - For 100 Years, I should not face any issue - 3650*100 Million URL support --> 365*10^9 (Able to generate)
+    - Characters that can be used
+        - 0-9 | a-z | A-Z    -->    10 + 26 + 26   --->   62 Characters
+        - Now to decide length of short URL
+            - If we can character of Length 1 --> Only 62 URLs
+            - If we can character of Length 2 --> Only 62^2 URLs
+            - To fulfill our requirement --> we need to us at least 7 characters to go above 365*10^9
+
+- To generate the required URL or say Hash Value, we have 2 methods
+    - Hash Function - we do not use this - cause length of characters generate is more than required - If we try to pick the first 7 characters of every generated value, it may be duplicate right, because whole generated value are all different, but trimmed part can be duplicate
+        - MD5 - 128 bit (16 Bytes) - Hash Function
+            - In Hexadecimal - Base is 16
+            - 1 Byte - 8 Bits - 2 Hexa Digits
+            - 16 Bytes - 21 Hexadigits
+            - MD5 can generate 32 Characters
+            - Requirement is only 7 length
+        - SHA1 - 160 Bit - 20 Bytes - 40 Hexa Digits
+            - 40 Character Length
+    - Base 62
+        - Any decimal can be converted to any base
+        - Here, base 62 - as we have been allowed 62 characters in the requirement (0-9,a-z,A-Z)
+
+- We need an ID generator, which we will to convert using Base 62 to a unique value
+- When we convert an ID, the unique value needs to be of length 7
+- 10 Million URL / Day :- cannot be done using single DB, we need to use sharded and distributed DB (with distributed computing)
+    - We need to use multiple servers, 1 is not enough (single point of failure, and large DB capacity)
+    - If multiple requests are going to different DBs, we must not generate same ID for both of them (synchronization problem)
+
+- Problem of Generating Unique ID
+    - We use Ticket Server (Centralized Auto Increment Service) - what is this fails, hence not reliable to solve synchronization problem
+    - Snowflake (timestamp) :- TimeStamp + Machine ID + Sequence Number (This can be used, but youtuber preferred Zookeeper)
+        - Even if 2 request come at same timestamp, Machine ID is different
+        - Twitter Uses it
+    - Apache's Zookeeper :- Distributed Application can coordinate with each other reliably and perform task
+        - Zookeeper has range for IDs which gets associated with each server, each range for a server, if one range is over, next or other works for that server
+        - Every Server has its own range in Zookeeper
+
+- Problem of Length of Generated ID
+    - Minimum 7 character is needed
+    - Solved by Padding:- ====

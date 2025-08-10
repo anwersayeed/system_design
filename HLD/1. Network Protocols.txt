@@ -1,0 +1,51 @@
+
+############# Rules so that two systems can communicate with each other.
+
+1. Learn About Network Protocols (TCP, Websocket, HTTP etc.)
+    - Client-Server Vs Peer 2 Peer Architecture (Web Sockets)
+    - HTTP vs TCP vs UDP vs FTP vs SMTP (POP, IMAP)
+
+############# 7 Layers (Data travels from Sender in this order, Just reverse order for the receiver to get the data):-
+Application Layer
+↓
+Presentation Layer
+↓
+Session Layer
+↓
+Transport Layer
+↓
+Network Layer
+↓
+Data Link Layer
+↓
+Physical Layer
+
+We will read only 2 (Application Layer and Transport Layer)
+
+- Application Layer
+    - Client Server Protocol (HTTP, FTP, SMTP, Web Sockets)
+        - One Way Communication
+        - Client initiates and send requests to Server, Server only responds
+        - Web Sockets are Bi-Directional, Both talk to each other (For Messaging Apps)
+        - HTTP - Connection Oriented - 1 Connection Created - Access Web Pages (Inside Web Pages, we have hyper text where we jump from one page to another)
+        - FTP - File Transfer Protocol - 2 Connection Maintained (Control Connection always connected and Data Connection may break and connect)
+            - FTP is not secured - data is not encrypted
+            - Hence, we use HTTPS - Secure Transfer Protocol
+        - SMTP with IMAP or POP - (SMTP for sending the email, IMAP for accessing/ reading the email) - (User Agent sends messages to MTA client -> MTA Server to User Agent)
+    - Peer to Peer Protocol  (WebRTC)
+        - Suppose, we have server and multiple clients, all can talk to each other, even client can talk to client
+        - Uses UDP to transfer data
+        - Live Streaming, Video Calling
+
+- Transport Layer and Network Layer
+    - TCP/ IP - Data Packets through virtual connection, connection is maintained
+         - Ordering Maintain - Each Data Packet is acknowledged
+        - If acknowledgement does not come for a data packet from receiver - then data packet is sent again
+    - UDP/ IP
+        - No Connection is maintained
+        - Various Small datagrams, and sent parallelly - multiple virtual connections, and not 1 connection
+        - No ordering is done
+        - Fast (No Ordering, No Acknowledgement, No Connection maintained)
+        - Video Calling, Live Streaming
+        - WebRTC uses UDP to transfer data
+
