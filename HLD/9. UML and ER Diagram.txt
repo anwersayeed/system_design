@@ -1,0 +1,25 @@
+
+###############################################################################
+UML - Unified Modelling Language - for Objects - Class Diagram
+    - Behaviour Diagram
+        - Activity Diagram
+        - Interaction Diagram
+        - State Machine Diagram
+        - Use Case Diagram
+    - Structure Diagram
+        - Class Diagram
+        - Deployment Diagram
+        - Component Diagram
+        - Object Diagram
+
+## Class Diagram
+
+###############################################################################
+ER  - Entity Relationship - Representation of Database
+    - Tables/ Models/ Entities - whatever
+    - their relationship
+    - Everything start with USERS table
+    - Examples:-
+        - One-to-One relationship  - One Tweet is related with One USER
+        - One-to-Many relationship - One USER can create many Tweets
+        - Many-to-One relationship -
