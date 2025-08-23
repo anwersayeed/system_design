@@ -1,0 +1,9 @@
+
+- Scaling notifications is very hard.
+
+- Suppose Sachin has 10M users, when he posts something, you need to send notification to 10M users and in realtime. (Impossible)
+
+- YouTube implemented Bell Icon why?
+    - So that, loyal followers should be prioritized when notifications are being sent. (Cannot send at once to all)
+    - Now, it is okay if it takes time to send notifications to non bell icon pressed users
+    - But those who pressed, they must get notifications with priority

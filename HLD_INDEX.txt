@@ -80,3 +80,71 @@ These were the EXACT questions asked in 2025.
 14. Design a reservation system for a parking lot
 15. Design a Real-time Inventory Tracking System
 16. Design a rating system for an e-commerce website
+
+1. Social Networks & Messaging
+
+↬ Design Twitter Feed
+↬ Design Instagram Feed
+↬ Design WhatsApp Messaging
+↬ Design Facebook Messenger
+↬ Design Twitter Direct Messages
+↬ Design Instagram Stories
+↬ Design Instagram Ads
+↬ Design Twitter Notifications
+↬ Design Tinder
+↬ Design Reddit
+↬ Design Facebook News Feed
+↬ Design LinkedIn Connections
+↬ Design Notification Service
+↬ Design Facebook Messenger Payments
+
+ 2. Media Streaming & Recommendations
+
+↬ Design Spotify Playlist
+↬ Design Netflix Playlist
+↬ Design Netflix Recommendations
+↬ Design YouTube Streaming
+↬ Design Spotify Connect
+↬ Design Spotify Discover Weekly
+↬ Design Instagram Reels
+↬ Design TikTok Feed
+↬ Design YouTube
+↬ Design Amazon Recommendations
+
+ 3. E-commerce & Marketplaces
+
+↬ Design Amazon Shopping Cart
+↬ Design Amazon E-commerce Store
+↬ Design Shopify Store
+↬ Design Flight Booking System
+↬ Design Stock Exchange System
+↬ Design Payment System
+↬ Design Uber Eats
+↬ Design Uber Dispatch System
+↬ Design Food Delivery App
+↬ Design Uber Pool
+↬ Design Uber Freight
+↬ Design Booking System (BookMyShow)
+
+ 4. File Storage, Collaboration & Productivity
+
+↬ Design Google Drive
+↬ Design Google Docs
+↬ Design Dropbox File Sharing
+↬ Design Distributed Cloud Storage (S3)
+↬ Design Online Code Editor
+↬ Design Code Deployment System
+↬ Design File Sharing System
+↬ Design Distributed Web Crawler
+
+ 5. Infrastructure & Distributed Systems
+
+↬ Design Distributed Message Queue (Kafka)
+↬ Design Amazon SQS
+↬ Design Distributed Locking Service
+↬ Design Amazon EC2
+↬ Design Amazon DynamoDB
+↬ Design Amazon Redshift
+↬ Design AWS S3
+↬ Design Google Analytics
+↬ Design Analytics Platform (Metrics & Logging)
