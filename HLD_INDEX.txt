@@ -7,7 +7,7 @@
 - Scale from 0 to Million Users
 - Design Consistent Hashing
 - Design URL Shortening
-- Back of the Envelope Estimation
+- Back of the Envelope Estimation - storage requirement for 10 years, per second requests etc
 - Design Key-Value Store
 - SQL vs NoSQL, When to Use Which DB
 - Design WhatsApp
