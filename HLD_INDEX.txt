@@ -148,3 +148,5 @@ These were the EXACT questions asked in 2025.
 ↬ Design AWS S3
 ↬ Design Google Analytics
 ↬ Design Analytics Platform (Metrics & Logging)
+
+Design Unique ID Generator in Distributed Systems
