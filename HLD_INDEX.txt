@@ -36,7 +36,7 @@
 - Design Twitter
 - Design Dropbox
 - Design Instagram
-- Design YouTube
+- Design YouTube (or any Video Streaming Service like Netflix, Hulu)
 - Design Google Drive
 - Design Web Crawler
 - Design Facebook News Feed / Newsfeed System
@@ -108,7 +108,6 @@ These were the EXACT questions asked in 2025.
 ↬ Design Spotify Discover Weekly
 ↬ Design Instagram Reels
 ↬ Design TikTok Feed
-↬ Design YouTube
 ↬ Design Amazon Recommendations
 
  3. E-commerce & Marketplaces
